@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import { thousandSeparator } from '~/filters'
 
 export default {

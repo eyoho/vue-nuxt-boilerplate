@@ -5,12 +5,10 @@ const isProduction = process.env.NODE_ENV === 'production'
 const isPC = process.env.DEVICE_ENV === 'pc'
 
 module.exports = {
-  // lru-cache
   cache: {
     max: 1000,
     maxAge: 900000
   },
-  // Headers of the page
   head: {
     title: 'vue-boilerplate',
     meta: [
@@ -26,15 +24,12 @@ module.exports = {
   css: [
     { src: '~/assets/scss/style.scss', lang: 'scss' }
   ],
-  // Customize the progress bar color
   loading: {
     color: 'blue',
     failedColor: 'red',
     height: '5px'
   },
-  // Build configuration
   build: {
-    // Run ESLint on save
     extend (config, { isDev }) {
       if (isDev && process.client) {
         config.module.rules.push({
@@ -57,7 +52,7 @@ module.exports = {
       })
     ],
     // Todo: 빌드시 CSS 외부파일로 생성
-    // https://ssr.vuejs.org/guide/css.html#enabling-css-extraction*/
+    // https://ssr.vuejs.org/guide/css.html#enabling-css-extraction
     extractCSS: isProduction && {
       allChunks: true
     },
@@ -67,7 +62,7 @@ module.exports = {
     ]
   },
   plugins: [
-    // Todo: 전역 사용이 불필요한 플러그인 분리
+    // Todo: 위에서부터 순차적 실행. 전역 사용이 불필요한 플러그인 분리
     '~/plugins/vue-rx.js',
     '~/plugins/vue-api-query',
     '~/plugins/vue-validator.js',

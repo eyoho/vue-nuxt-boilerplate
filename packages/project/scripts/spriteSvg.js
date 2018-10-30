@@ -1,9 +1,9 @@
 import gaze from 'gaze'
+// https://github.com/cascornelissen/svg-spritemap-webpack-plugin
 import SVGSpritemapPlugin from 'svg-spritemap-webpack-plugin'
 import { spriteConfig, makeSpriteMap } from './spriteCommon'
 
 const makeSvgSprite = (folder) => {
-  // https://github.com/cascornelissen/svg-spritemap-webpack-plugin
   return new SVGSpritemapPlugin(`assets/img/sprite/svg/${folder}/*.svg`, {
     sprite: {
       prefix: `${folder}-`,

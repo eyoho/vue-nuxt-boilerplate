@@ -40,13 +40,13 @@
 
 export default {
   name: 'Validation',
-  data: function () {
+  data () {
     return {
       name: '',
       gender: '',
       phone: '',
       age: ''
-    };
+    }
   },
   validators: {
     name: function (value) {

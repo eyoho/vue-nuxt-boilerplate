@@ -19,7 +19,7 @@ import Post from '~/models/Post'
 
 export default {
   name: 'RxjsSearch',
-  data() {
+  data () {
     return {
       search: ''
     }
