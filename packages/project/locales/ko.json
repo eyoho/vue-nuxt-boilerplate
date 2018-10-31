@@ -1,0 +1,16 @@
+{
+  "header": {
+    "title": "뷰 넉스트 보일러플레이트",
+    "korean": "한국어",
+    "english": "영어"
+  },
+  "content": {
+    "vuex": "뷰엑스",
+    "image": "이미지",
+    "vue": "뷰",
+    "nuxt": "넉스트"
+  },
+  "footer": {
+    "copyright": "저작권"
+  }
+}

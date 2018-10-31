@@ -1,6 +1,16 @@
 {
-  "language": {
+  "header": {
+    "title": "Vue Nuxt Boilerplate",
     "korean": "Korean",
     "english": "English"
+  },
+  "content": {
+    "vuex": "Vuex",
+    "image": "Image",
+    "vue": "Vue",
+    "nuxt": "Nuxt"
+  },
+  "footer": {
+    "copyright": "Copyright"
   }
 }

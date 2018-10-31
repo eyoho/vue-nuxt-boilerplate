@@ -1,6 +1,6 @@
 <template>
   <dl>
-    <dt>Vue</dt>
+    <dt>{{ $t('content.vue') }}</dt>
     <dd>please refresh browser</dd>
   </dl>
 </template>

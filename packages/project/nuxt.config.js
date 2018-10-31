@@ -61,6 +61,9 @@ module.exports = {
       ...spriteSvg
     ]
   },
+  router: {
+    middleware: 'i18n'
+  },
   plugins: [
     // Todo: 위에서부터 순차적 실행. 전역 사용이 불필요한 플러그인 분리
     '~/plugins/vue-rx.js',

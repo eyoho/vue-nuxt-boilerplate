@@ -1,23 +1,24 @@
 <template>
   <div>
     <header>
-      <h1>vue-boilerplate</h1>
+      <h1>{{ $t('header.title') }}</h1>
       <navigation />
+      <locale />
     </header>
     <nuxt/>
-    <footer>
-      copyright
-    </footer>
+    <footer>{{ $t('footer.copyright') }}</footer>
   </div>
 </template>
 
 <script>
 import Navigation from '~/components/Common/Navigation'
+import Locale from '~/components/Common/Locale'
 
 export default {
   name: 'Default',
   components: {
-    Navigation
+    Navigation,
+    Locale
   }
 }
 </script>

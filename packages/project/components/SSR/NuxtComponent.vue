@@ -1,6 +1,6 @@
 <template>
   <dl>
-    <dt>Nuxt</dt>
+    <dt>{{ $t('content.nuxt') }}</dt>
     <dd>Server Side Rendering</dd>
   </dl>
 </template>
