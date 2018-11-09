@@ -16,6 +16,12 @@
       <li role="presentation">
         <nuxt-link to="/axios" tag="button" type="button" class="button">Axios Test</nuxt-link>
       </li>
+      <li role="presentation">
+        <nuxt-link to="/rxjs" tag="button" type="button" class="button">Rxjs Counter</nuxt-link>
+      </li>
+      <li role="presentation">
+        <nuxt-link to="/rxjs/search" tag="button" type="button" class="button">Rxjs Search</nuxt-link>
+      </li>
     </ul>
   </nav>
 </template>
