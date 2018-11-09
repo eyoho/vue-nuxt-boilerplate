@@ -1,6 +1,6 @@
-> 필요한 모듈 외에 추가적으로 사용할 모듈은 `release` 브랜치에서 `merge`해서 사용하도록 변경했습니다.
+> 필요한 모듈 외에 추가적으로 사용할 모듈은 `release` 브랜치에서 `merge`해서 사용합니다.
 > * release/add-axios: `axios`, `vue-api-query`
-> * release/add-rxjs: `rxjs`, `vue-rx`
+> * release/add-rxjs: `axios`, `vue-api-query`, `rxjs`, `vue-rx`
 > * release/add-persistedstate: `vuex-persistedstate`
 > * release/add-firebase: `firebase`, `vuexfire`
 
@@ -107,7 +107,7 @@ pages/
 --| index.vue
 ```
 
-```javascript
+```
 router: {
   routes: [
     {
@@ -143,7 +143,7 @@ pages/
 --| index.vue
 ```
 
-```javascript
+```
 router: {
   routes: [
     {
@@ -195,7 +195,7 @@ pages/
 --| users.vue
 ```
 
-```javascript
+```
 router: {
   routes: [
     {
@@ -232,7 +232,7 @@ pages/
 --| index.vue
 ```
 
-```javascript
+```
 router: {
   routes: [
     {
