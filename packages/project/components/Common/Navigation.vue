@@ -13,6 +13,9 @@
       <li role="presentation">
         <nuxt-link to="/validation" tag="button" type="button" class="button">Validation</nuxt-link>
       </li>
+      <li role="presentation">
+        <nuxt-link to="/axios" tag="button" type="button" class="button">Axios Test</nuxt-link>
+      </li>
     </ul>
   </nav>
 </template>

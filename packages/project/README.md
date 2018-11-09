@@ -27,6 +27,7 @@
 * **locales**: 다국어 `json` 파일을 포함하는 디렉토리 입니다.
 * **middleware**: 애플리케이션의 미들웨어를 포함하는 디렉토리 입니다. 미들웨어는 페이지나 레이아웃이 렌더링되기 전에 실행할 사용자 정의 함수를 정의할 수 있습니다.
 [https://ko.nuxtjs.org/guide/routing/#middleware](https://ko.nuxtjs.org/guide/routing/#middleware "https://ko.nuxtjs.org/guide/routing/#middleware")
+* **models**: API 모델을 포함하는 디렉토리 입니다. 자세한 내용은 model 디렉토리의 README를 참고하세요.
 * **pages**: 애플리케이션의 뷰와 라우트를 포함하는 디렉토리 입니다. 폴더의 `.vue` 파일을 읽고 애플리케이션의 라우터를 자동으로 생성합니다.
 [https://ko.nuxtjs.org/guide/views/](https://ko.nuxtjs.org/guide/views/ "https://ko.nuxtjs.org/guide/views/")
 * **plugins**: 루트 `vue.js` 애플리케이션이 생성되기 전 실행하고 싶은 자바스크립트 플러그인을 포함하는 디렉토리 입니다. directive 파일도 포함됩니다.
@@ -419,6 +420,53 @@ $store.state.module.state
 this.$store.commit('module/mutations')
 ```
 
+### API 모델 사용
+
+* Base Model
+ 
+```javascript
+// models/Model.js
+import { Model as BaseModel } from 'vue-api-query'
+ 
+export default class Model extends BaseModel {
+  baseURL () {
+    return 'https://jsonplaceholder.typicode.com'
+  }
+   request (config) {
+    return this.$http.request(config)
+  }
+}
+```
+
+* Domain Model
+ 
+```javascript
+// models/Post.js
+import Model from './Model'
+ 
+export default class Post extends Model {
+  resource()
+  {
+    return 'posts'
+  }
+}
+```
+
+* 사용
+ 
+```javascript
+// GET /posts?filter[status]=ACTIVE&include=user,category&append=likes&orderBy=-created_at,category_id
+ 
+import Post from '~/models/Post'
+ 
+let posts = await Post
+  .where('status', 'ACTIVE')
+  .include('user', 'category')
+  .append('likes')
+  .orderBy('-created_at', 'category_id')
+  .get()
+```
+
 ### Validation 사용
 
 ```html
@@ -625,6 +673,35 @@ module.exports = {
         ]
       })
     ]
+  }
+}
+```
+
+* axios 추가
+
+`axios`를 한 번만 번들에 포함하기 위해서는 `build.vendor` 키를 `nuxt.config.js`에서 사용합니다.
+
+```bash
+yarn add --dev axios
+```
+
+```javascript
+import axios from 'axios'
+
+export default {
+  async asyncData ({ params }) {
+    let { data } = await axios.get(`https://my-api/posts/${params.id}`)
+    return { title: data.title }
+  }
+}
+```
+
+```javascript
+// nuxt.config.js
+module.exports = {
+  build: {
+    // 웹팩4에서는 자동으로 vendor에 추가하기때문에 더이상 아래 코드를 추가할 필요가 없음
+    vendor: ['axios']
   }
 }
 ```
