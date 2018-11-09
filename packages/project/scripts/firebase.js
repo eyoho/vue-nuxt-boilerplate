@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
 import 'firebase/database'
+import 'firebase/storage'
 
 const app = firebase.initializeApp({
   apiKey: "AIzaSyAEzU0DaVU7eBthmFy8N3c2bKr5tW9iIdk",
@@ -12,10 +13,16 @@ const app = firebase.initializeApp({
 
 const database = app.database()
 
+const storage = app.storage()
+
 const todosRef = database.ref('todos')
+
+const imagesRef = database.ref('images')
 
 export {
   app,
   database,
-  todosRef
+  storage,
+  todosRef,
+  imagesRef
 }

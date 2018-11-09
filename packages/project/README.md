@@ -3,6 +3,7 @@
 > * release/add-rxjs: `axios`, `vue-api-query`, `rxjs`, `vue-rx`
 > * release/add-persistedstate: `vuex-persistedstate`
 > * release/add-firebase: `firebase`, `vuexfire`
+> * release/add-firebase-storage: `firebase`, `vuexfire`
 
 ### 명령어
 
