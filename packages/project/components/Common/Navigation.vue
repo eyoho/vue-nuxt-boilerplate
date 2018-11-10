@@ -16,6 +16,9 @@
       <li role="presentation">
         <nuxt-link to="/firebase" tag="button" type="button" class="button">Firebase</nuxt-link>
       </li>
+      <li role="presentation">
+        <nuxt-link to="/login/auth" tag="button" type="button" class="button">Firebase Auth</nuxt-link>
+      </li>
     </ul>
   </nav>
 </template>

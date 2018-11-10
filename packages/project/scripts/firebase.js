@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
 import 'firebase/database'
+import 'firebase/auth'
 
 const app = firebase.initializeApp({
   apiKey: "AIzaSyAEzU0DaVU7eBthmFy8N3c2bKr5tW9iIdk",
@@ -12,10 +13,16 @@ const app = firebase.initializeApp({
 
 const database = app.database()
 
+const auth = app.auth()
+
 const todosRef = database.ref('todos')
+
+const GoogleProvider = new firebase.auth.GoogleAuthProvider()
 
 export {
   app,
   database,
+  auth,
+  GoogleProvider,
   todosRef
 }

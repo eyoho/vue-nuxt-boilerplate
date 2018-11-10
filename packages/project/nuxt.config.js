@@ -1,8 +1,12 @@
 import spritePng from './scripts/spritePng'
 import spriteSvg from './scripts/spriteSvg'
+import xmlhttprequest from 'xmlhttprequest'
 
 const isProduction = process.env.NODE_ENV === 'production'
 const isPC = process.env.DEVICE_ENV === 'pc'
+
+// 서버사이드 렌더링에서 XMLHttpRequest 에러 해결
+global.XMLHttpRequest = xmlhttprequest.XMLHttpRequest
 
 module.exports = {
   cache: {
@@ -62,7 +66,10 @@ module.exports = {
     ]
   },
   router: {
-    middleware: 'i18n'
+    middleware: [
+      'i18n',
+      'auth'
+    ]
   },
   plugins: [
     // Todo: 위에서부터 순차적 실행. 전역 사용이 불필요한 플러그인 분리
