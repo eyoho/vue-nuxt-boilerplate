@@ -14,10 +14,10 @@
         <nuxt-link class="button" to="/validation">Validation</nuxt-link>
       </li>
       <li role="presentation">
-        <nuxt-link to="/firebase" tag="button" type="button" class="button">Firebase</nuxt-link>
+        <nuxt-link class="button" to="/firebase">Firebase</nuxt-link>
       </li>
       <li role="presentation">
-        <nuxt-link to="/firebase/storage" tag="button" type="button" class="button">Firebase Storage</nuxt-link>
+        <nuxt-link class="button" to="/firebase/storage">Firebase Storage</nuxt-link>
       </li>
     </ul>
   </nav>
