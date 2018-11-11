@@ -34,23 +34,6 @@ export default {
       images: 'images/images'
     })
   },
-  methods: {
-    selectImage (e) {
-      const fileList = e.target.files || e.dataTransfer.files
-      Array.from(Array(fileList.length).keys()).map(x => this.addImage(fileList[x]))
-    },
-    addImage (file) {
-      this.uploading = true
-      this.uploadFile = file.name
-      this.uploadTask = storage.ref('images/' + file.name).put(file)
-    },
-    removeImage (image) {
-      this.deleting = true
-      imagesRef.child(image['.key']).remove()
-      storage.ref('images/' + image.name).delete()
-      this.deleting = false
-    }
-  },
   watch: {
     uploadTask () {
       this.uploadTask.on('state_changed',
@@ -86,6 +69,23 @@ export default {
   },
   created () {
     this.$store.dispatch('images/setImagesRef', imagesRef)
+  },
+  methods: {
+    selectImage (e) {
+      const fileList = e.target.files || e.dataTransfer.files
+      Array.from(Array(fileList.length).keys()).map(x => this.addImage(fileList[x]))
+    },
+    addImage (file) {
+      this.uploading = true
+      this.uploadFile = file.name
+      this.uploadTask = storage.ref('images/' + file.name).put(file)
+    },
+    removeImage (image) {
+      this.deleting = true
+      imagesRef.child(image['.key']).remove()
+      storage.ref('images/' + image.name).delete()
+      this.deleting = false
+    }
   }
 }
 </script>
