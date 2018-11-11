@@ -2,16 +2,16 @@
   <nav>
     <ul>
       <li role="presentation">
-        <nuxt-link to="/" tag="button" type="button" class="button">go to Home</nuxt-link>
+        <nuxt-link class="button" to="/">go to Home</nuxt-link>
       </li>
       <li role="presentation">
-        <nuxt-link to="/ssr" tag="button" type="button" class="button">SSR Test</nuxt-link>
+        <nuxt-link class="button" to="/ssr">SSR Test</nuxt-link>
       </li>
       <li role="presentation">
-        <nuxt-link to="/vuex" tag="button" type="button" class="button">Vuex Test</nuxt-link>
+        <nuxt-link class="button" to="/vuex">Vuex Test</nuxt-link>
       </li>
       <li role="presentation">
-        <nuxt-link to="/validation" tag="button" type="button" class="button">Validation</nuxt-link>
+        <nuxt-link class="button" to="/validation">Validation</nuxt-link>
       </li>
     </ul>
   </nav>
@@ -34,7 +34,7 @@ li {
   margin: 0 5px;
   vertical-align: top;
 }
-button {
+a {
   font-size: 12px;
 }
 </style>

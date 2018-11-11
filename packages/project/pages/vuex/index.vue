@@ -1,7 +1,7 @@
 <template>
   <section class="main">
     <h2 v-visible="$store.state.counter.count <= 10000">custom directive</h2>
-    <input type="text" v-focus v-model="$store.state.counter.count">
+    <input type="text" v-model="$store.state.counter.count" v-focus>
     <button type="button" class="button" @click="increment">increment</button>
     <button type="button" class="button" @click="decrement">decrement</button>
   </section>
