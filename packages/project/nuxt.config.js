@@ -1,8 +1,9 @@
+import autoprefixer from 'autoprefixer'
 import spritePng from './scripts/spritePng'
 import spriteSvg from './scripts/spriteSvg'
 
-const isProduction = process.env.NODE_ENV === 'production'
-const isPC = process.env.DEVICE_ENV === 'pc'
+const isProduction = (process.env.NODE_ENV === 'production')
+const isPC = (process.env.DEVICE_ENV === 'pc')
 
 module.exports = {
   cache: {
@@ -12,17 +13,17 @@ module.exports = {
   head: {
     title: 'vue-boilerplate',
     meta: [
-      { charset: 'utf-8' },
-      isPC && { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover, shrink-to-fit=no, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' },
-      { hid: 'description', name: 'description', content: 'project description' }
+      {charset: 'utf-8'},
+      isPC && {'http-equiv': 'X-UA-Compatible', content: 'IE=edge'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover, shrink-to-fit=no, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'},
+      {hid: 'description', name: 'description', content: 'project description'}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
   css: [
-    { src: '~/assets/scss/style.scss', lang: 'scss' }
+    {src: '~/assets/scss/style.scss', lang: 'scss'}
   ],
   loading: {
     color: 'blue',
@@ -31,7 +32,7 @@ module.exports = {
   },
   build: {
     extend (config, { isDev }) {
-      if (isDev && process.client) {
+      if (isDev) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -43,7 +44,7 @@ module.exports = {
     // Todo: CND 경로 설정
     // publicPath: 'https://cdn.nuxtjs.org',
     postcss: [
-      require('autoprefixer')({
+      autoprefixer({
         browsers: [
           '> 1%',
           'last 2 versions',
@@ -65,10 +66,9 @@ module.exports = {
     middleware: 'i18n'
   },
   plugins: [
-    // Todo: 위에서부터 순차적 실행. 전역 사용이 불필요한 플러그인 분리
     {src: '~/plugins/vue-i18n.js', injectAs: 'i18n'},
+    '~/plugins/vee-validate.js',
     '~/plugins/vue-api-query',
-    '~/plugins/vue-rx.js',
-    '~/plugins/vue-validator.js'
+    '~/plugins/vue-rx.js'
   ]
 }
