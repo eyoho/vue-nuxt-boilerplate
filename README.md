@@ -21,10 +21,6 @@ yarn project:start
 
 # 스태틱 생성
 yarn project:generate
-
-# 린트 테스트, 수정
-yarn project:lint
-yarn project:lintfix
 ```
 
 > 프로젝트의 자세한 설명은 `packages/project` 디렉토리의 `README.md`를 참고합니다.

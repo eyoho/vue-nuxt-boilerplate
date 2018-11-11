@@ -1,6 +1,6 @@
 // https://webdevchallenges.com/nuxt-js-internationalization-without-route-param/
 
-export default function ({ isHMR, app, store, route, req }) {
+export default ({ isHMR, app, store, route, req }) => {
   if (isHMR) {
     return
   }
@@ -11,11 +11,11 @@ export default function ({ isHMR, app, store, route, req }) {
       let locale = null
 
       if (headers.cookie) {
-        const cookies = headers.cookie.split(/[;] */).reduce(function (result, pairStr) {
-            const arr = pairStr.split('=')
-            if (arr.length === 2) result[arr[0]] = arr[1]
-            return result
-          }, {})
+        const cookies = headers.cookie.split(/[;] */).reduce((result, pairStr) => {
+          const arr = pairStr.split('=')
+          if (arr.length === 2) result[arr[0]] = arr[1]
+          return result
+        }, {})
 
         locale = cookies.locale
       }
