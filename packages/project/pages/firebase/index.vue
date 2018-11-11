@@ -26,10 +26,15 @@ export default {
       todos: 'todos/todos'
     })
   },
+  created () {
+    this.$store.dispatch('todos/setTodosRef', todosRef)
+  },
   methods: {
     addTodo () {
       if (this.newTodoText.trim()) {
-        todosRef.push({text: this.newTodoText})
+        todosRef.push({
+          text: this.newTodoText
+        })
         this.newTodoText = ''
       }
     },
@@ -38,10 +43,7 @@ export default {
     },
     removeTodo (todo) {
       todosRef.child(todo['.key']).remove()
-    },
-  },
-  created () {
-    this.$store.dispatch('todos/setTodosRef', todosRef)
+    }
   }
 }
 </script>
