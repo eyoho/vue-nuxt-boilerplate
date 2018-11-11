@@ -11,10 +11,10 @@ export const mutations = {
 }
 
 export const actions = {
-  signInEmail ({commit}, {email, password}) {
+  signInEmail ({ commit }, { email, password }) {
     auth.signInWithEmailAndPassword(email, password).then(
       () => {
-        commit('setUser', {email})
+        commit('setUser', { email })
         this.$router.push('/login/auth')
       },
       (error) => {
@@ -29,7 +29,7 @@ export const actions = {
       }
     )
   },
-  signInGoogle ({commit}) {
+  signInGoogle ({ commit }) {
     auth.signInWithPopup(GoogleProvider).then((result) => {
       commit('setUser', {
         email: result.user.email
@@ -37,7 +37,7 @@ export const actions = {
       this.$router.push('/login/auth')
     })
   },
-  signOut ({commit}) {
+  signOut ({ commit }) {
     auth.signOut().then(() => {
       commit('setUser', null)
     }).catch(error => console.log(error))

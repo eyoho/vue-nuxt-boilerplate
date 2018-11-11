@@ -10,13 +10,15 @@ Vue.use(VeeValidate, {
     en: {
       attributes: {
         'user.name': 'Name',
-        'user.email': 'Email'
+        'user.email': 'Email',
+        'user.password': 'Password'
       }
     },
     ko: {
       attributes: {
         'user.name': '이름',
-        'user.email': '이메일'
+        'user.email': '이메일',
+        'user.password': '비밀번호'
       }
     }
   }
