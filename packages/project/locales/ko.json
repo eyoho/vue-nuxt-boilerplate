@@ -5,6 +5,8 @@
     "english": "영어"
   },
   "content": {
+    "name": "이름",
+    "email": "이메일",
     "vuex": "뷰엑스",
     "image": "이미지",
     "vue": "뷰",

@@ -37,10 +37,7 @@
     "project:mobile:dev": "yarn workspace project mobile:dev",
     "project:build": "yarn workspace project build",
     "project:start": "yarn workspace project start",
-    "project:generate": "yarn workspace project generate",
-    "project:lint": "yarn workspace project lint",
-    "project:lintfix": "yarn workspace project lintfix",
-    "project:precommit": "yarn workspace project precommit"
+    "project:generate": "yarn workspace project generate"
   },
   "engines": {
     "node": ">= 8.0.0",

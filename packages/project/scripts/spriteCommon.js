@@ -3,7 +3,7 @@ import path from 'path'
 import handlebars from 'handlebars'
 
 const getFolders = (dir) => {
-  return fs.readdirSync(dir).filter(file => {
+  return fs.readdirSync(dir).filter((file) => {
     return fs.statSync(path.join(dir, file)).isDirectory()
   })
 }
@@ -26,7 +26,10 @@ export const makeSpriteMap = (type) => {
     import: spriteConfig.pngFolders
   })
 
-  if (!fs.existsSync(spriteConfig.scss_dest)) fs.mkdirSync(spriteConfig.scss_dest)
+  if (!fs.existsSync(spriteConfig.scss_dest)) {
+    fs.mkdirSync(spriteConfig.scss_dest)
+  }
+
   fs.writeFileSync(path.join(`${spriteConfig.scss_dest}`, `_map_${type}.scss`), spriteMap, 'utf8')
 }
 
