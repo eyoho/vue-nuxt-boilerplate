@@ -37,7 +37,7 @@ export default {
     }
   },
   methods: {
-    fetchTerm: (term) => from(Post.params({userId: term}).get()),
+    fetchTerm: (term) => from(Post.params({ userId: term }).get()),
     formatResult: (result) => {
       return {
         term: result,
