@@ -1,9 +1,13 @@
 > 필요한 모듈 외에 추가적으로 사용할 모듈은 `release` 브랜치에서 `merge`해서 사용합니다.
+
 > * release/add-axios: `axios`, `vue-api-query`
 > * release/add-rxjs: `axios`, `vue-api-query`, `rxjs`, `vue-rx`
+
 > * release/add-persistedstate: `vuex-persistedstate`
+
 > * release/add-firebase: `firebase`, `vuexfire`
 > * release/add-firebase-storage: `firebase`, `vuexfire`
+> * release/add-firebase-authentication: `firebase`, `vuexfire`
 
 ### 명령어
 
@@ -423,27 +427,8 @@ this.$store.commit('module/mutations')
 ### Validation 사용
 
 ```html
-<div :class="{error: validation.hasError('age')}">
-  <label for="age">Age</label>
-  <input type="text" id="age" name="age" v-model="age">
-  <p>{{ validation.firstError('age') }}</p>
-</div>
-```
-
-```javascript
-export default {
-  name: 'Validation',
-  data: function () {
-    return {
-      age: ''
-    };
-  },
-  validators: {
-    age: function (value) {
-      return this.$Validator.value(value).integer().greaterThan(20)
-    }
-  }
-}
+<input type="email" id="email" name="email" v-model="email" v-validate="'required|email'">
+<p>{{ errors.first('email') }}</p>
 ```
 
 ### 이미지 사용
@@ -573,17 +558,8 @@ module.exports = {
     "semi": [2, "never"],
     "no-console": "off",
     "vue/max-attributes-per-line": "off",
-    "prettier/prettier": ["error", { "semi": false }]
+    'vue/no-confusing-v-for-v-if': 'off'
   }
-}
-```
-
-```javascript
-// package.json
-
-"scripts": {
-  "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-  "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
 }
 ```
 
@@ -592,9 +568,9 @@ module.exports = {
 
 module.exports = {
   build: {
-    extend(config, ctx) {
+    extend(config, { isDev }) {
       // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
+      if (isDev) {
         config.module.rules.push({
           enforce: "pre",
           test: /\.(js|vue)$/,

@@ -5,6 +5,8 @@
     "english": "English"
   },
   "content": {
+    "name": "Name",
+    "email": "Email",
     "vuex": "Vuex",
     "image": "Image",
     "vue": "Vue",
