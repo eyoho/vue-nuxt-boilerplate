@@ -1,4 +1,5 @@
 import firebase from 'firebase/app'
+import 'firebase/auth'
 import 'firebase/database'
 
 if (!firebase.apps.length) {
@@ -12,6 +13,7 @@ if (!firebase.apps.length) {
   })
 }
 
+export const auth = firebase.auth()
 export const database = firebase.database()
 
 export default firebase

@@ -1,4 +1,6 @@
-import { auth, session, GoogleProvider } from '~/scripts/firebase'
+import firebase from '~/plugins/firebase'
+
+const auth = firebase.auth()
 
 export const state = () => ({
   user: null
@@ -12,7 +14,7 @@ export const mutations = {
 
 export const actions = {
   signInEmail ({ commit }, { email, password }) {
-    auth.setPersistence(session).then(() => {
+    auth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
       return auth.signInWithEmailAndPassword(email, password).then(
         ({ user }) => {
           commit('setUser', user)
@@ -32,7 +34,7 @@ export const actions = {
     })
   },
   signInGoogle ({ commit }) {
-    auth.signInWithPopup(GoogleProvider).then(({ user }) => {
+    auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(({ user }) => {
       commit('setUser', user)
       this.$router.push('/login/auth')
     })
