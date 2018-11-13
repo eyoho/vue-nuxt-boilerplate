@@ -1,6 +1,6 @@
 <template>
   <section class="main">
-    <p>{{ $store.state.auth.user.email }} 님 반갑습니다.</p>
+    <p v-if="$store.state.auth.user">{{ $store.state.auth.user.email }} 님 반갑습니다.</p>
     <button type="button" class="button" @click="signOut">로그아웃</button>
   </section>
 </template>
@@ -10,7 +10,6 @@ export default {
   name: 'Auth',
   methods: {
     signOut () {
-      this.$router.push('/login')
       this.$store.dispatch('auth/signOut')
     }
   }

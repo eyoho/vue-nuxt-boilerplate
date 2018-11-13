@@ -73,6 +73,7 @@ module.exports = {
     ]
   },
   plugins: [
+    '~/plugins/auth.js',
     {src: '~/plugins/vue-i18n.js', injectAs: 'i18n'},
     '~/plugins/vee-validate.js'
   ]

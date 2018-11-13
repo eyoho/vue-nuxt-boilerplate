@@ -15,6 +15,8 @@ const database = app.database()
 
 const auth = app.auth()
 
+const session = firebase.auth.Auth.Persistence.SESSION
+
 const todosRef = database.ref('todos')
 
 const GoogleProvider = new firebase.auth.GoogleAuthProvider()
@@ -23,6 +25,7 @@ export {
   app,
   database,
   auth,
+  session,
   GoogleProvider,
   todosRef
 }
