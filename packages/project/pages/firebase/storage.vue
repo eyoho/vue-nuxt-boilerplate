@@ -16,7 +16,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { storage, imagesRef } from '~/scripts/firebase'
+import { database, storage } from '~/plugins/firebase'
+
+const imagesRef = database.ref('images')
 
 export default {
   name: 'Storage',
