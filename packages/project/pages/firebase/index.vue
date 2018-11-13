@@ -12,7 +12,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { todosRef } from '~/scripts/firebase'
+import { database } from '~/plugins/firebase'
+
+const todosRef = database.ref('todos')
 
 export default {
   name: 'Firebase',
