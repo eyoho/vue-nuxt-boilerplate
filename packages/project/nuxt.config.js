@@ -9,7 +9,7 @@ const isPC = (process.env.DEVICE_ENV === 'pc')
 // 서버사이드 렌더링에서 XMLHttpRequest 에러 해결
 global.XMLHttpRequest = xmlhttprequest.XMLHttpRequest
 
-module.exports = {
+export default {
   cache: {
     max: 1000,
     maxAge: 900000

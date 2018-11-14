@@ -24,7 +24,7 @@ Vue.use(VeeValidate, {
   }
 })
 
-export default ({ app, store }) => {
+export default ({ store }) => {
   Validator.localize('en', en)
   Validator.localize('ko', ko)
   Validator.localize(store.state.i18n.locale)
