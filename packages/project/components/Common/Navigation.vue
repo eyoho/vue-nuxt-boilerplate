@@ -14,7 +14,7 @@
         <nuxt-link class="button" to="/validation">Validation</nuxt-link>
       </li>
       <li role="presentation">
-        <nuxt-link class="button" to="/firebase">Firebase</nuxt-link>
+        <nuxt-link class="button" to="/firebase">Firebase Database</nuxt-link>
       </li>
       <li role="presentation">
         <nuxt-link class="button" to="/firebase/storage">Firebase Storage</nuxt-link>
