@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import Cookie from 'js-cookie'
+
 export default {
   name: 'Locale',
   computed: {
@@ -19,7 +21,7 @@ export default {
   },
   methods: {
     setLocale (locale) {
-      document.cookie = `locale=${locale}`
+      Cookie.set('locale', locale)
       location.reload()
     }
   }
