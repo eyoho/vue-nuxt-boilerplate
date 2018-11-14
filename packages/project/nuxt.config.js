@@ -5,7 +5,7 @@ import spriteSvg from './scripts/spriteSvg'
 const isProduction = (process.env.NODE_ENV === 'production')
 const isPC = (process.env.DEVICE_ENV === 'pc')
 
-module.exports = {
+export default {
   cache: {
     max: 1000,
     maxAge: 900000

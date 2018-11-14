@@ -1,9 +1,5 @@
-// https://webdevchallenges.com/nuxt-js-internationalization-without-route-param/
-
-export default ({ isHMR, app, store, route, req }) => {
-  if (isHMR) {
-    return
-  }
+export default ({ isHMR, req, route, store, app }) => {
+  if (isHMR) return
 
   if (req) {
     if (route.name) {

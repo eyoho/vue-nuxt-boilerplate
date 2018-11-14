@@ -27,14 +27,17 @@ export default {
     }
   },
   methods: {
+    reset () {
+      this.user.name = null
+      this.user.email = null
+      this.$validator.reset()
+      this.errors.clear()
+    },
     onSubmit () {
       this.$validator.validateAll().then((success) => {
         if (success) {
           alert('성공')
-          this.user.name = null
-          this.user.email = null
-          this.$validator.reset()
-          this.errors.clear()
+          this.reset()
         } else {
           this.$el.querySelector('input[name="' + this.errors.items[0].field + '"]').focus()
         }
