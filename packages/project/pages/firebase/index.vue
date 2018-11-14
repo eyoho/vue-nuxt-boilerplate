@@ -1,18 +1,20 @@
 <template>
   <section class="main">
-    <input v-model.trim="newTodoText" @keyup.enter="addTodo" placeholder="Add new todo">
+    <label for="inputData">텍스트 입력후 엔터</label>
+    <input id="inputData" v-model.trim="newTodoText" @keyup.enter="addTodo" placeholder="Add new todo">
     <ul>
       <li v-for="todo in todos" :key="todo['.key']">
         <input :value="todo.text" @input="updateTodo(todo, $event.target.value)">
-        <button @click="removeTodo(todo)">X</button>
+        <button class="button" @click="removeTodo(todo)">삭제</button>
       </li>
     </ul>
+    <p>수정은 바로 반영 됨</p>
   </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { database } from '~/plugins/firebase'
+import { database } from '~/utils/firebase'
 
 const todosRef = database.ref('todos')
 
