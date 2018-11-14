@@ -11,12 +11,13 @@
         </p>
       </li>
     </ul>
+    <p>같은 이름의 이미지는 업데이트 됨</p>
   </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { database, storage } from '~/plugins/firebase'
+import { database, storage } from '~/utils/firebase'
 
 const imagesRef = database.ref('images')
 
