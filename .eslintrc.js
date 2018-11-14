@@ -22,6 +22,7 @@ module.exports = {
   rules: {
     'no-console': isProduction,
     'no-debugger': isProduction,
+    'no-throw-literal': 'off',
     'semi': [2, 'never'],
     // 'v-for'와 'v-if' 함께 사용 가능
     'vue/no-confusing-v-for-v-if': 'off',
