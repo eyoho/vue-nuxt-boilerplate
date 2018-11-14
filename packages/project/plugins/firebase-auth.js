@@ -1,4 +1,4 @@
-import { auth } from '~/plugins/firebase'
+import { auth } from '~/utils/firebase'
 
 export default ({ store }) => {
   // 현재 로그인한 사용자 가져오기

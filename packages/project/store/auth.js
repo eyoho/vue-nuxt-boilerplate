@@ -1,5 +1,5 @@
 import Cookie from 'js-cookie'
-import firebase from '~/plugins/firebase'
+import firebase from '~/utils/firebase'
 
 const auth = firebase.auth()
 
@@ -32,9 +32,6 @@ export const mutations = {
 // Todo: 새탭에서 접속시 토큰 유지(세션), 쿠키와 로컬스토리지 보안 강화
 
 const saveToken = (commit) => {
-  window.onbeforeunload = () => {
-    deleteToken()
-  }
   return auth.currentUser.getIdToken(true).then((idToken) => {
     Cookie.set('token', idToken)
     window.localStorage.setItem('token', idToken)
