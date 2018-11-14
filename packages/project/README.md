@@ -1,13 +1,13 @@
-> 필요한 모듈 외에 추가적으로 사용할 모듈은 `release` 브랜치에서 `merge`해서 사용합니다.
+> 공통으로 필요한 모듈 외에 추가적으로 사용할 모듈은 각 브랜치에서 확인합니다.
 
-> * release/add-axios: `axios`, `vue-api-query`
-> * release/add-rxjs: `axios`, `vue-api-query`, `rxjs`, `vue-rx`
+> * axios: `axios`, `vue-api-query`
+> * axios-rxjs: `axios`, `vue-api-query`, `rxjs`, `vue-rx`
 
-> * release/add-persistedstate: `vuex-persistedstate`
+> * persisted-state: `vuex-persistedstate`
 
-> * release/add-firebase: `firebase`, `vuexfire`
-> * release/add-firebase-storage: `firebase`, `vuexfire`
-> * release/add-firebase-authentication: `firebase`, `vuexfire`
+> * firebase-database: `firebase`, `vuexfire`, `firebase.database`
+> * firebase-database-storage: `firebase`, `vuexfire`, `firebase.database`, `firebase.storage`
+> * firebase-database-auth: `firebase`, `vuexfire`, `firebase.database`, `firebase.auth`
 
 ### 명령어
 
