@@ -1,24 +1,59 @@
+import Cookie from 'js-cookie'
 import firebase from '~/plugins/firebase'
 
 const auth = firebase.auth()
 
 export const state = () => ({
-  user: null
+  user: null,
+  token: null
 })
+
+export const getters = {
+  isLogged (state) {
+    return !!state.token
+  }
+}
 
 export const mutations = {
   setUser (state, payload) {
     state.user = payload
+  },
+  resetUser (state) {
+    state.user = null
+  },
+  setToken (state, token) {
+    state.token = token
+  },
+  resetToken (state) {
+    state.token = null
   }
 }
 
+// Todo: 새탭에서 접속시 토큰 유지(세션), 쿠키와 로컬스토리지 보안 강화
+
+const saveToken = (commit) => {
+  window.onbeforeunload = () => {
+    deleteToken()
+  }
+  return auth.currentUser.getIdToken(true).then((idToken) => {
+    Cookie.set('token', idToken)
+    window.localStorage.setItem('token', idToken)
+    commit('setToken', idToken)
+  })
+}
+
+const deleteToken = (commit) => {
+  Cookie.remove('token')
+  window.localStorage.removeItem('token')
+  commit('resetToken')
+}
+
 export const actions = {
-  signInEmail ({ commit }, { email, password }) {
-    auth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
+  async signInEmail ({ commit }, { email, password }) {
+    await auth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
       return auth.signInWithEmailAndPassword(email, password).then(
         ({ user }) => {
           commit('setUser', user)
-          this.$router.push('/login/auth')
         },
         (error) => {
           switch (error.code) {
@@ -32,15 +67,20 @@ export const actions = {
         }
       )
     })
+    await saveToken(commit)
+    this.$router.push('/')
   },
-  signInGoogle ({ commit }) {
-    auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(({ user }) => {
+  async signInGoogle ({ commit }) {
+    await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(({ user }) => {
       commit('setUser', user)
-      this.$router.push('/login/auth')
     })
+    await saveToken(commit)
+    this.$router.push('/')
   },
   async signOut ({ commit, state }) {
     await auth.signOut().catch(error => console.log(error))
-    this.$router.push('/login')
+    commit('resetUser')
+    deleteToken(commit)
+    this.$router.push('/')
   }
 }

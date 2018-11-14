@@ -16,16 +16,26 @@
       <li role="presentation">
         <nuxt-link class="button" to="/firebase">Firebase</nuxt-link>
       </li>
-      <li role="presentation">
-        <nuxt-link class="button" to="/login/auth">Firebase Auth</nuxt-link>
+      <li role="presentation" v-if="!isLogged">
+        <nuxt-link class="button" to="/auth/login">Firebase Auth Login</nuxt-link>
+      </li>
+      <li role="presentation" v-else>
+        <nuxt-link class="button" to="/auth/logout">Firebase Auth Logout</nuxt-link>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'Navigation'
+  name: 'Navigation',
+  computed: {
+    ...mapGetters({
+      isLogged: 'auth/isLogged'
+    })
+  }
 }
 </script>
 

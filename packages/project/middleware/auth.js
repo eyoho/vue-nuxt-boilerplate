@@ -1,11 +1,16 @@
-export default ({ store, redirect, route }) => {
-  !store.state.auth.user && isLoginRoute(route) && redirect('/login')
-}
+export default ({ req, store }) => {
+  if (process.server && !req) return
 
-// 로그인 안한 사용자가 접근 할 수 없는 라우트 목록
-function isLoginRoute (route) {
-  switch (route.path) {
-    case '/login/auth': return true
-    default: return false
+  let token = null
+
+  if (process.server) {
+    if (!req.headers.cookie) return
+    const cookie = req.headers.cookie.split(';').find(c => c.trim().startsWith('token='))
+    if (!cookie) return
+    token = cookie.split('=')[1]
+  } else {
+    token = window.localStorage.getItem('token')
   }
+
+  store.commit('auth/setToken', token)
 }

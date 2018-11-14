@@ -68,8 +68,8 @@ module.exports = {
   },
   router: {
     middleware: [
-      'i18n',
-      'auth'
+      'auth',
+      'i18n'
     ]
   },
   plugins: [

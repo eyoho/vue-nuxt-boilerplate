@@ -7,16 +7,27 @@
     <p class="cover">
       <img src="/img/nuxt-views-schema_800x400.png" width="400" height="200" alt="임시 이미지">
     </p>
+    <template v-if="isLogged">
+      <h2>로그인 되었습니다.</h2>
+      <p v-if="$store.state.auth.user">{{ $store.state.auth.user.email }} 님 반갑습니다.</p>
+      <p v-else>사용자 정보를 가져오는 중입니다.</p>
+    </template>
   </section>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { thousandSeparator } from '~/filters'
 
 export default {
   name: 'Home',
   filters: {
     thousandSeparator
+  },
+  computed: {
+    ...mapGetters({
+      isLogged: 'auth/isLogged'
+    })
   }
 }
 </script>

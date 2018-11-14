@@ -14,6 +14,7 @@
 <script>
 export default {
   name: 'Login',
+  middleware: 'auth-logged',
   data () {
     return {
       user: {
